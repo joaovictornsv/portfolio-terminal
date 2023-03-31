@@ -11,20 +11,20 @@ export const COMMANDS = {
   `,
 
   'skills': `
-    <p>🎨 Frontend (Web and Mobile):</p>
+    <p>👀 Frontend (Web and Mobile):</p>
     - React.js<br/>
     - Next.js<br/>
     - React Native<br/>
     - Expo<br/><br/>
     
-    <p>⚡ Backend:</p>
+    <p>🧠 Backend:</p>
     - Node.js and Typescript<br/>
     - Nest.js<br/>
     - Python<br/>
     - SQL and NoSQL Databases<br/>
     - Azure Cloud Services<br/><br/>
     
-    <p>🛠 Tools:</p>
+    <p>🤝 Tools:</p>
     - Terraform<br/>
     - Docker<br/>
   `,
