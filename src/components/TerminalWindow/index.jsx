@@ -11,7 +11,7 @@ export const TerminalWindow = ({ children }) => {
     >
       <Flex flexDirection={"column"} filter="drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))">
         <Flex pl={2} pr={2} h={8} bg={"#44475a"} alignItems={"center"} justifyContent={"space-between"} minWidth={700} borderTopRadius={12} >
-          <Box fontSize={14} fontFamily={"JetBrains Mono"} color={"gray.400"}>
+          <Box fontSize={14} color={"gray.400"}>
             joaovictornsv's shell
           </Box>
           <Flex>

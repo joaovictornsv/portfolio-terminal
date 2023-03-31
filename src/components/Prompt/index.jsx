@@ -51,7 +51,7 @@ export const Prompt = ({ onSubmit, isFirstPrompt = false, isLastPrompt = false }
     onSubmit(inputText)
   }
   return (
-    <Box maxWidth="700" fontFamily={"JetBrains Mono"} ml={1}>
+    <Box maxWidth="700" ml={1}>
       <Text as="span" fontWeight={"bold"} color="#f1fa8c">you </Text>
       <Text as="span" fontWeight={"bold"} color="#f8f8f2">in </Text>
       <Text as="span" fontWeight={"bold"} color="#8be9fd">~</Text><br />
