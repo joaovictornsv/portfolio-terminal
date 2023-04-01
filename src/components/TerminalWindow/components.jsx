@@ -50,7 +50,6 @@ export const TerminalWindowTitle = () => {
       bg="#44475a"
       alignItems="center"
       justifyContent="space-between"
-      minWidth={700}
       borderTopRadius={12}
     >
       <Box fontSize={14} color={"gray.400"}>
@@ -66,7 +65,10 @@ export const TerminalWindowContainer = ({ children }) => {
     <Flex
       flexDirection={"column"}
       filter="drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))"
-      fontFamily={"JetBrains Mono, monospace"}>
+      fontFamily={"JetBrains Mono, monospace"}
+      w={"95%"}
+      maxWidth={700}
+    >
       {children}
     </Flex>
   )
@@ -77,7 +79,6 @@ export const PromptsBox = ({ children }) => {
     <Box
       pt={1}
       bg="#282a36"
-      w={700}
       h={500}
       overflowY={"auto"}
       borderBottomRadius={12}
