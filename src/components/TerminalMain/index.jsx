@@ -20,7 +20,8 @@ export const TerminalMain = () => {
       setPromptsLength(prev => prev + 1)
     }
 
-    if (command != "") {
+    const lastCommandExecuted = executedCommands[executedCommands.length - 1]
+    if (command != "" && command != lastCommandExecuted) {
       setExecutedCommands(prev => [...prev, command])
     }
   }
