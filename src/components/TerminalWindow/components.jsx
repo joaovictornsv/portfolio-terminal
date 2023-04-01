@@ -78,7 +78,7 @@ export const PromptsBox = ({ children }) => {
   return (
     <Box
       pt={1}
-      bg="#282a36"
+      bg="#282a36EE"
       h={500}
       overflowY={"auto"}
       borderBottomRadius={12}
