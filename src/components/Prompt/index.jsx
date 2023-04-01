@@ -4,16 +4,17 @@ import { Box, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { COMMANDS } from '../../constants'
 import { PromptBreadcrumb, PromptResult } from './components'
 
-export const Prompt = ({ onSubmit, isFirstPrompt = false, isLastPrompt = false }) => {
+export const Prompt = ({ onSubmit, executedCommands = [], isFirstPrompt = false, isLastPrompt = false }) => {
   const [inputText, setInputText] = useState("")
   const [promptResult, setPromptResult] = useState("")
   const [promptColor, setPromptColor] = useState("#f8f8f2")
   const [inputBlocked, setInputBlocked] = useState(false)
+  const [currentCommandSelected, setCurrentCommandSelected] = useState(executedCommands.length)
 
   const inputRef = useRef(null);
 
-  const handleChange = (e) => {
-    const inputText = e.target.value
+  const handleChange = (text) => {
+    const inputText = `${text}`.trim()
     setInputText(inputText)
 
     if (isValidCommand(inputText)) {
@@ -44,6 +45,24 @@ export const Prompt = ({ onSubmit, isFirstPrompt = false, isLastPrompt = false }
     onSubmit(inputText)
   }
 
+  const handleKeyPress = (key) => {
+
+    if (key == 'ArrowUp') {
+      if (currentCommandSelected > 0) {
+        setCurrentCommandSelected(prev => prev - 1)
+        handleChange(executedCommands[currentCommandSelected - 1])
+      }
+    } else if (key == 'ArrowDown') {
+      if (currentCommandSelected < executedCommands.length - 1) {
+        setCurrentCommandSelected(prev => prev + 1)
+        handleChange(executedCommands[currentCommandSelected + 1])
+      } else {
+        setCurrentCommandSelected(executedCommands.length)
+        handleChange("")
+      }
+    }
+  }
+
   useEffect(() => {
     if (isLastPrompt) {
       inputRef.current.focus();
@@ -72,9 +91,10 @@ export const Prompt = ({ onSubmit, isFirstPrompt = false, isLastPrompt = false }
             ml={-2}
             _disabled={{ color: promptColor }}
             placeholder={isFirstPrompt ? 'Type "help"' : ""}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target.value)}
             value={inputText}
             fontSize={"small"}
+            onKeyDown={(e) => handleKeyPress(e.key)}
           />
         </InputGroup>
       </form>

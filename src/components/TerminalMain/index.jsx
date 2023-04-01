@@ -6,6 +6,7 @@ import { Center } from '@chakra-ui/react';
 export const TerminalMain = () => {
   const [prompts, setPrompts] = useState([1])
   const [promptsLength, setPromptsLength] = useState(1)
+  const [executedCommands, setExecutedCommands] = useState([])
 
   const onSubmit = (command) => {
     if (command == 'clear') {
@@ -18,6 +19,10 @@ export const TerminalMain = () => {
       setPrompts([...prompts, 1])
       setPromptsLength(prev => prev + 1)
     }
+
+    if (command != "") {
+      setExecutedCommands(prev => [...prev, command])
+    }
   }
 
   return (
@@ -27,6 +32,7 @@ export const TerminalMain = () => {
           prompts={prompts}
           promptsLength={promptsLength}
           onSubmit={onSubmit}
+          executedCommands={executedCommands}
         />
       </TerminalWindow>
     </Center>

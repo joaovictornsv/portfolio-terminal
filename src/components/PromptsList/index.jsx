@@ -1,6 +1,6 @@
 import { Prompt } from '../Prompt'
 
-export const PromptsList = ({ prompts, promptsLength, onSubmit }) => {
+export const PromptsList = ({ prompts, promptsLength, onSubmit, executedCommands }) => {
   return (
     <>
       {
@@ -11,6 +11,7 @@ export const PromptsList = ({ prompts, promptsLength, onSubmit }) => {
           if (isFirstAndUniquePrompt) {
             return (
               <Prompt
+                executedCommands={executedCommands}
                 onSubmit={onSubmit}
                 isLastPrompt={true}
                 isFirstPrompt={true}
@@ -21,6 +22,7 @@ export const PromptsList = ({ prompts, promptsLength, onSubmit }) => {
             if (isLastPrompt) {
               return (
                 <Prompt
+                  executedCommands={executedCommands}
                   onSubmit={onSubmit}
                   isLastPrompt={true}
                   key={i}
