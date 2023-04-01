@@ -9,7 +9,7 @@ export const TerminalWindow = ({ children }) => {
       color='#262626'
       minH="100vh"
     >
-      <Flex flexDirection={"column"} filter="drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))">
+      <Flex flexDirection={"column"} filter="drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))" fontFamily={"JetBrains Mono, monospace"}>
         <Flex pl={2} pr={2} h={8} bg={"#44475a"} alignItems={"center"} justifyContent={"space-between"} minWidth={700} borderTopRadius={12} >
           <Box fontSize={14} color={"gray.400"}>
             joaovictornsv's shell
