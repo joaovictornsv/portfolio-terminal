@@ -15,7 +15,7 @@ export const WindowTitleButtons = () => {
   return (
     <Flex>
       <Flex
-        {...defaultButtonStyle}
+        sx={{...defaultButtonStyle}}
         mr={1}
         bg="yellow.400"
       >
@@ -23,7 +23,7 @@ export const WindowTitleButtons = () => {
       </Flex>
 
       <Flex
-        {...defaultButtonStyle}
+        sx={{...defaultButtonStyle}}
         mr={1}
         transform={"rotate(45deg)"}
         bg="green.300"
@@ -32,7 +32,7 @@ export const WindowTitleButtons = () => {
       </Flex>
 
       <Flex
-        {...defaultButtonStyle}
+        sx={{...defaultButtonStyle}}
         bg="red.400"
       >
         <CloseIcon fontSize={8} color={"gray.800"} />
