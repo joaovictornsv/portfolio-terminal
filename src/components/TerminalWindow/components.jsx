@@ -52,7 +52,12 @@ export const TerminalWindowTitle = () => {
       justifyContent="space-between"
       borderTopRadius={12}
     >
-      <Box fontSize={14} color={"gray.400"}>
+      <Box fontSize={14} color={"gray.400"} sx={{
+          '-webkit-user-select': "none",
+          '-moz-user-select': "none",
+          '-ms-user-select': "none",
+          'user-select': "none",
+      }}>
         joaovictornsv's shell
       </Box>
       <WindowTitleButtons />
