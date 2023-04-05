@@ -5,8 +5,8 @@ export const PromptsList = ({ prompts, promptsLength, onSubmit, executedCommands
     <>
       {
         prompts.map((_, i) => {
-          const isFirstAndUniquePrompt = (i == 0 && promptsLength == 1)
-          const isLastPrompt = (i == promptsLength - 1)
+          const isFirstAndUniquePrompt = (i === 0 && promptsLength === 1)
+          const isLastPrompt = (i === promptsLength - 1)
 
           if (isFirstAndUniquePrompt) {
             return (

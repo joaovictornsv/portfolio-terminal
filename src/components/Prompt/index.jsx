@@ -14,10 +14,11 @@ export const Prompt = ({ onSubmit, executedCommands = [], isFirstPrompt = false,
   const inputRef = useRef(null);
 
   const handleChange = (text) => {
-    const inputText = `${text}`.trim()
+    const inputText = `${text}`
+    const inputTextTrim = inputText.trim()
     setInputText(inputText)
 
-    if (isValidCommand(inputText)) {
+    if (isValidCommand(inputTextTrim)) {
       setPromptColor("#50fa7b")
     } else {
       setPromptColor("#f8f8f2")
@@ -31,28 +32,29 @@ export const Prompt = ({ onSubmit, executedCommands = [], isFirstPrompt = false,
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const inputTextTrim = inputText.trim()
 
-    if (inputText == "") {
+    if (inputText === "") {
       setPromptResult("")
-    } else if (isValidCommand(inputText)) {
-      setPromptResult(COMMANDS[inputText])
+    } else if (isValidCommand(inputTextTrim)) {
+      setPromptResult(COMMANDS[inputTextTrim])
     } else {
-      const firstCommandPart = inputText.split()[0]
+      const firstCommandPart = inputTextTrim.split(" ")[0]
       setPromptResult(`Command "${firstCommandPart}" not recognized`)
     }
 
     setInputBlocked(true)
-    onSubmit(inputText)
+    onSubmit(inputTextTrim)
   }
 
   const handleKeyPress = (key) => {
 
-    if (key == 'ArrowUp') {
+    if (key === 'ArrowUp') {
       if (currentCommandSelected > 0) {
         setCurrentCommandSelected(prev => prev - 1)
         handleChange(executedCommands[currentCommandSelected - 1])
       }
-    } else if (key == 'ArrowDown') {
+    } else if (key === 'ArrowDown') {
       if (currentCommandSelected < executedCommands.length - 1) {
         setCurrentCommandSelected(prev => prev + 1)
         handleChange(executedCommands[currentCommandSelected + 1])

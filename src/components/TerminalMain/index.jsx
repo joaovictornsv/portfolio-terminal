@@ -9,7 +9,7 @@ export const TerminalMain = () => {
   const [executedCommands, setExecutedCommands] = useState([])
 
   const onSubmit = (command) => {
-    if (command == 'clear') {
+    if (command === 'clear') {
       setPrompts([])
       setTimeout(() => {
         setPromptsLength(1)
@@ -21,7 +21,7 @@ export const TerminalMain = () => {
     }
 
     const lastCommandExecuted = executedCommands[executedCommands.length - 1]
-    if (command != "" && command != lastCommandExecuted) {
+    if (command !== "" && command !== lastCommandExecuted) {
       setExecutedCommands(prev => [...prev, command])
     }
   }
